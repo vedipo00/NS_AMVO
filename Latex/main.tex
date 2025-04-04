@@ -1,0 +1,118 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[english]{babel}
+\renewcommand{\thesubsection}{\thesection.\alph{subsection}}
+
+\usepackage{movie15}
+\selectlanguage{english}
+\NeedsTeXFormat{LaTeX2e}
+\renewcommand{\baselinestretch}{1.3}
+\usepackage[utf8]{inputenc}
+\usepackage{enumerate}
+\usepackage{listings}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{afterpage}
+\usepackage{lscape}
+\usepackage{caption}
+\usepackage{appendix}
+\usepackage{enumitem}
+\usepackage{upquote}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{makecell}
+\usepackage{mdwlist}
+%Mida de marges i columnes______
+\usepackage{vmargin}
+\usepackage{graphicx}
+\graphicspath{ {imatges/} }
+\setpapersize{A4}
+\setmargins{2.5cm}{1.5cm}{16.5cm} {23.42cm}{32.54pt}{1cm}{0pt}{1.5cm} 
+\usepackage{multicol}
+\usepackage{multirow}
+\usepackage{float}
+\usepackage{cancel}
+\usepackage{gensymb}
+\setlength{\columnsep}{1cm}
+%_______________________________
+%Bibliografia
+\bibliographystyle{apalike}
+\renewcommand{\baselinestretch}{1.2}
+\usepackage[urldate=long]{biblatex}
+\bibliography{refs.bib}
+\usepackage{url}
+%_______________________________
+
+%Capçalera_______________________
+\pagestyle{fancy}
+\fancyhead[L]{Navier-Stokes}
+\fancyhead[R]{Aerodinàmica, Mecànica de Vol i Orbital
+%\includegraphics[scale=0.2]{imatges/upc.png}}
+}
+\setlength{\headheight}{40pt} 
+%________________________________
+
+\usepackage[hidelinks]{hyperref}
+\usepackage[all]{hypcap}
+
+\newenvironment{imatge}
+{\par\medskip\noindent\minipage{\linewidth}}
+{\endminipage\par\medskip}
+
+\lstset{language=Matlab,breaklines=true}
+
+
+%Taules
+\usepackage{tabularx}
+\usepackage{longtable}
+%\usepackage[table]{xcolor}
+%\usepackage[table,xcdraw]{xcolor}
+%\documentclass[xcolor=table]{beamer}
+\usepackage{diagbox}
+
+%Símbol €
+\usepackage[utf8]{inputenc}
+\usepackage{eurosym}
+
+\usepackage[utf8x]{inputenc}
+
+
+%Requadrar text
+\usepackage{amsthm}
+\usepackage{verbatim}
+
+%Matlab
+%\usepackage{listings}
+\usepackage{matlab-prettifier}
+
+%Annex
+\usepackage{appendix}
+
+%Totes les seccions del document_________________________
+\begin{document}
+\input{0 Portada}
+
+% Índex___________________________
+    \addtocontents{toc}{\hfill \textbf{Pàgina} \par}
+    \tableofcontents
+    \newpage
+    %\listoffigures
+    %\newpage
+    %\listoftables
+    %\newpage
+%_________________________________
+\input{intro}
+\input{PartA}
+\input{PartB}
+\input{PartC}
+\input{Conclusions}
+
+\newpage
+\printbibliography
+
+%\appendix
+%\input{Annex}
+
+\end{document}
+%________________________________________________________

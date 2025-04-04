@@ -1,0 +1,27 @@
+\section{Introduction to the Problem}
+
+The objective of this problem is to determine the velocity and pressure fields as functions of spatial coordinates ($x, y$) and time ($t$) that satisfy the incompressible Navier-Stokes equations for arbitrary values of density ($\rho$) and kinematic viscosity ($\nu$). The problem is divided into the following parts:
+\begin{itemize}
+    \item \textbf{Part A:} Implementation and verification of the convective and diffusive terms. An analytic solution will be used and the goal is to show second order convergence.
+    
+    \item \textbf{Part B:} Implementation and verification of the pressure-velocity coupling. An arbitrary velocity field with non-null divergence is employed instead of $u^p$.
+    
+    \item \textbf{Part C:} Implementation and verification of time integration.
+\end{itemize}
+  
+\textbf{Initial conditions:}
+\begin{align*}
+    u(x, y, t=0) &= \cos(2\pi x) \sin(2\pi y), \\
+    v(x, y, t=0) &= -\sin(2\pi x) \cos(2\pi y).
+\end{align*}
+
+\subsection{Preliminary Considerations}
+Before implementation, three key considerations must be addressed:
+\begin{enumerate}
+    \item \textbf{Staggered mesh:} The spatial discretization follows a staggered grid approach to avoid numerical instabilities and ensure proper representation of velocity and pressure fields.
+    \item \textbf{Field notation:} A consistent notation system is adopted to distinguish different field components and their respective locations within the computational domain.
+    \item \textbf{Mesh for a periodic problem and halo update:} The domain is periodic, requiring careful treatment of boundary conditions and halo cells for data exchange between neighboring computational cells.
+\end{enumerate}
+
+This structured approach ensures a systematic implementation of the Navier-Stokes solver while maintaining accuracy and stability in the numerical solution.
+
