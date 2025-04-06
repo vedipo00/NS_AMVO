@@ -1,11 +1,16 @@
 \newpage
 
-\section{\textbf{Conclusions}}
+\section{Conclusions}
 
 \bigskip
 
-The study of non-viscous potential flows around different geometries, including a channel, a stationary cylinder, and a rotating cylinder, demonstrates the effectiveness of the numerical methodology in capturing fundamental flow characteristics. The comparison between analytical and numerical solutions for channel flow shows excellent agreement, confirming the accuracy of the numerical implementation for simple boundary conditions. In the case of flow around a stationary cylinder, the numerical results capture key features such as flow separation and stagnation points, though minor discrepancies are observed due to grid resolution limitations and numerical diffusion effects. The pressure distribution around the stationary cylinder aligns well with theoretical expectations, highlighting the symmetric nature of the potential flow and the absence of lift forces.
+The numerical resolution of the incompressible Navier-Stokes equations has been implemented and validated in three stages.
 
-For the rotating cylinder case, the numerical solution successfully reproduces the overall circulation effects, with streamlines indicating the expected lift generation. However, discrepancies in the streamline pattern near the cylinder suggest that numerical diffusion and resolution of the vortex structure could be improved. The calculated lift and drag coefficients provide valuable insights into the aerodynamic forces acting on the cylinder, with results showing reasonable agreement with analytical predictions. 
+In the first part, a known analytical solution was used to validate the implementation of convective and diffusive terms. By computing numerical errors over a range of grid sizes, the error plot confirmed a second-order convergence rate. This validates the finite-difference discretization schemes used for both convective and diffusive terms.
 
-Overall, the numerical methodology proves to be robust for modeling potential flow scenarios, providing useful approximations of analytical solutions. Further improvements, such as higher grid resolution, enhanced numerical schemes, and refined boundary condition handling, could lead to even better agreement with theoretical models, particularly for complex cases involving rotational effects.
+The second part focused on enforcing incompressibility using a projection method. Starting from a velocity field with artificial divergence. The pseudo-pressure gradients aligned correctly with the divergence sources, and the visualizations confirmed that the velocity field became divergence-free after correction.
+
+The final part combined the previous components into a full time-dependent simulation . The temporal evolution was validated against the analytical solution, showing a close match to the analytical one in both velocity and pressure over time, and the convergence study confirmed second-order spatial accuracy. Divergence remained low throughout the simulation, confirming the effectiveness of the projection step. Additionally, particle trajectory animations showed smooth motion consistent with the velocity field.
+
+Overall, the solver performs accurately and reliably across all tested aspects:
+It achieves second-order convergence in space, it correctly enforces the divergence-free condition through a pressure correction step and it reproduces time-dependent flow behavior with accurately compared to analytical references.
